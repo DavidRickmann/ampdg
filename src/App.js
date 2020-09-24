@@ -85,6 +85,12 @@ var randomItem3 = myArray[Math.floor(Math.random()*myArray.length)];
   </div>
 </div>
 
+  <div class="footertransbox">
+  
+  <small> © David Rickmann and Emily Down 2020 </small>
+  
+  </div>
+
     </div>
   );
 }
