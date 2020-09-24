@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import adventures from './file.json';
+
 
 
 function App() {
