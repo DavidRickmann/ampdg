@@ -1,9 +1,40 @@
 import React from 'react';
 import './App.css';
+import { useEffect, useState } from 'react'
+import netlifyAuth from './netlifyAuth.js'
+
 
 
 
 function App() {
+ 
+ let [user, setUser] = useState(null)
+ 
+ 
+ let login = () => {
+  netlifyAuth.authenticate((user) => {
+    setLoggedIn(!!user)
+    setUser(user)
+    netlifyAuth.closeModal()
+  })
+}
+
+let logout = () => {
+  netlifyAuth.signout(() => {
+    setLoggedIn(false)
+    setUser(null)
+  })
+}
+ 
+ let [loggedIn, setLoggedIn] = useState(netlifyAuth.isAuthenticated)
+
+useEffect(() => {
+  netlifyAuth.initialize((user) => {
+    setLoggedIn(!!user)
+    setUser(user)
+  })
+}, [loggedIn])
+ 
  
 var myArray = [
 "Build the most elaborate blanket fort and spend a night in it.",
@@ -28,7 +59,8 @@ var myArray = [
 "Pick a film and arrange a special showing (e.g. sing-along, wear costume, themed snacks, or make a live-action version)",
 "Make a transformation video (or yourself, a friend, an object, etc)",
 "Make bubbles (as big or as many as possible)",
-"Be a manic pixie dream girl."
+"Be a manic pixie dream girl.",
+"Make a Rube Goldberg Device."
 ];
 
 
@@ -45,6 +77,31 @@ var randomItem3 = myArray[Math.floor(Math.random()*myArray.length)];
 		teaching broodingly soulful young men to embrace life and its infinite mysteries and adventures as a service.
 	  </header>
 	  <div class="background">
+    
+	<div class="transbox">
+  {loggedIn ? (
+  <div>
+	{user && <>Hello {user?.user_metadata.full_name}!</>}
+	<br />
+	<button onClick={logout}>
+    Log Out
+	</button>
+  </div>
+) : (
+  <div>
+  
+  <button onClick={login}>
+    Log in here.
+  </button>
+  <br/>
+  This doesn't make a difference to anything yet. But the whole identity code does seem to work. so... yay?
+  </div>
+)}
+
+ .
+  
+ </div> 
+  
   <div class="transbox">
         <h2>Here's the rules</h2>
         <ul>
