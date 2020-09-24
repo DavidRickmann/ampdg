@@ -150,7 +150,7 @@ var randomItem3 = myArray[Math.floor(Math.random()*myArray.length)];
   </div>
 
 <div class = "donation">
-  <a href='https://ko-fi.com/M4M0MP6Z' target='_blank'><img height='36' src='https://cdn.ko-fi.com/cdn/kofi2.png?v=2' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
+  <a href='https://ko-fi.com/M4M0MP6Z' target='_blank' rel="noopener noreferrer"><img height='36' src='https://cdn.ko-fi.com/cdn/kofi2.png?v=2' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
  </div> 
 
     </div>
