@@ -17,12 +17,12 @@ At the moment it offers you up 3 adventures from the initial list and then shows
 * A FAQ page.
 
 * Users should be able to sign in to their own page. 
-  That page would show:
-    current tiny adventure
-    previous tiny adventures (and notes they made about it)
-    other friends who use ampdg
-    any adventures they have submitted and how many people have selected/done them
-    a group of other ampdg users (if you have joined a group, and their most recent tiny adventure) 
+    - That page would show:
+        - current tiny adventure
+        - previous tiny adventures (and notes they made about it)
+        - other friends who use ampdg
+        - any adventures they have submitted and how many people have selected/done them
+        - a group of other ampdg users (if you have joined a group, and their most recent tiny adventure) 
 
 * Better randomisation function that doesn't pick duplicated.
 
