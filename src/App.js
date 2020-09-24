@@ -3,7 +3,6 @@ import './App.css';
 import { useEffect, useState } from 'react'
 import netlifyAuth from './netlifyAuth.js'
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
-import { Nav, Navbar, NavItem } from "react-bootstrap";
 
 
 
