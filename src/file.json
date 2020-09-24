@@ -1,11 +1,7 @@
-import React from 'react';
-import './App.css';
-import adventures from './file.json';
+{
 
 
-function App() {
- 
-var myArray = [
+"adventures": [
 "Build the most elaborate blanket fort and spend a night in it.",
 "Go to the cinema at a random time and see the first film showing",
 "Go and hunt down an ice-cream van to buy an ice-cream from",
@@ -29,64 +25,8 @@ var myArray = [
 "Make a transformation video (or yourself, a friend, an object, etc)",
 "Make bubbles (as big or as many as possible)",
 "Be a manic pixie dream girl."
-];
+
+]
 
 
-var randomItem1 = myArray[Math.floor(Math.random()*myArray.length)];
-var randomItem2 = myArray[Math.floor(Math.random()*myArray.length)];
-var randomItem3 = myArray[Math.floor(Math.random()*myArray.length)];
-
-
-
- return (
-    <div className="AMPDG">
-      <header className="App-header">
-        <h1>Automanic Pixie Dream Girl</h1>
-		teaching broodingly soulful young men to embrace life and its infinite mysteries and adventures as a service.
-	  </header>
-	  <div class="background">
-  <div class="transbox">
-        <h2>Here's the rules</h2>
-        <ul>
-		   <li>Everyone gets given a random thing to do at the start of the month</li>
-           <li>You have a month to do the thing</li>
-           <li>You should document the thing in some way to share (a photo, video, some words)</li>
-           <li>IF you post about it on twitter you can use the hashtag #AMPDG</li>
-           <li>You should add ideas to the ideas pool in return</li>
-		</ul>
-</div>
-  <div class="transbox">
-
-        <h2>Choose Your Adventure!</h2>
-        <h3>Chose one of these three adventures:</h3>
-
-		
-
-        <ul>
-          <li>{randomItem1}</li>
-          <li>{randomItem2}</li>
-          <li>{randomItem3}</li>
-        </ul>
-</div>
-  <div class="transbox">
-
-<h2>Submit an adventure for someone else</h2>
-<ul>
-<li>Should be achievable in roughly half a day of time</li>
-<li>Should not cost more than 20 quid</li>
-<li>Should be legal</li>
-<li>Not everything will be possible, so you get to have a new thing if it is not possible for you</li>
-</ul>
-
-<h1> <a href="https://forms.gle/tLa1eAkkWaukdK3p9"> Click here! </a></h1>
-
-
-
-  </div>
-</div>
-
-    </div>
-  );
 }
-
-export default App;

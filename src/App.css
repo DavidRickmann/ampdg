@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Sofia')
+
 .App {
   text-align: center;
 }
@@ -14,25 +16,69 @@
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  background-color: #00cc99;
+  min-height: 30h;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  font-family: 'Sofia';
+  
+}
+
+
+body {
+  background-image: radial-gradient(#FAFAFA 25%, transparent 25%), radial-gradient(#FAFAFA 25%, transparent 25%);
+  background-color: #00eebb;
+  background-position: 0 0, 55px 55px;
+  background-size: 120px 120px;
+  font-family: 'Titillium Web', sans-serif
+}
+.heading {
+  font-weight: 700;
+}
+.subheading {
+  font-weight: 300;
 }
 
 .App-link {
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+div.transbox {
+  margin: 30px;
+  background-color: #ffffff;
+  border: 2px solid black;
+  opacity: 0.8;
+  justify-content: center;
+}
+
+div.transbox p {
+  margin: 5%;
+  font-weight: bold;
+  color: #000000;
+  justify-content: center;
+}
+
+div.transbox h2 {
+  margin: 5%;
+  font-weight: bold;
+  color: #000000;
+  justify-content: center;
+}
+
+div.transbox h3 {
+  margin: 5%;
+  font-weight: bold;
+  color: #000000;
+  justify-content: center;
+}
+
+div.transbox ul {
+  margin: 5%;
+  color: #000000;
+  justify-content: center;
 }
