@@ -89,3 +89,9 @@ div.footertransbox {
 }
 
 
+div.donation {
+  border: 0;
+    justify-content: center;
+  text-align: center;
+}
+
