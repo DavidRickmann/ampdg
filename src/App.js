@@ -2,7 +2,8 @@ import React from 'react';
 import './App.css';
 import { useEffect, useState } from 'react'
 import netlifyAuth from './netlifyAuth.js'
-
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import { Nav, Navbar, NavItem } from "react-bootstrap";
 
 
 
@@ -36,7 +37,99 @@ useEffect(() => {
 }, [loggedIn])
  
  
-var myArray = [
+
+
+
+ return (
+
+ 
+ 
+ 
+    <div className="AMPDG">
+	
+
+
+      <header className="App-header">
+        <h1>Automanic Pixie Dream Girl</h1>
+		teaching broodingly soulful young men to embrace life and its infinite mysteries and adventures as a service.
+	  </header>
+	  
+	  
+	  <Router>
+      <div>
+        <nav>
+          <ul>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/adventures">Adventures</Link></li>
+            <li><Link to="/submit">Submit</Link></li>
+          </ul>
+        </nav>
+
+        {/* A <Switch> looks through its children <Route>s and
+            renders the first one that matches the current URL. */}
+        <Switch>
+          <Route path="/adventures"><Adventures /></Route>
+          <Route path="/submit"><Submit /></Route>
+          <Route path="/"><Home /></Route>
+        </Switch>
+      </div>
+    </Router>
+    
+	
+	
+	<div class="transbox">
+  {loggedIn ? (
+  <div>
+	{user && <>Hello {user?.user_metadata.full_name}!</>}
+	<br />
+	<button onClick={logout}>
+    Log Out
+	</button>
+  </div>
+) : (
+  <div>
+  
+  <button onClick={login}>
+    Log in here.
+  </button>
+  <br/>
+  This doesn't make a difference to anything yet. But the whole identity code does seem to work. so... yay?
+  </div>
+)}
+
+ 
+</div>
+
+  <div class="footertransbox">
+  
+  <small> ©2020 David Rickmann and Emily Down </small>
+  
+  </div>
+
+<div class = "donation">
+  <a href='https://ko-fi.com/M4M0MP6Z' target='_blank' rel="noopener noreferrer"><img height='36' src='https://cdn.ko-fi.com/cdn/kofi2.png?v=2' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
+ </div> 
+
+    </div>
+  );
+}
+
+function Home() {
+  return <div class="transbox">
+        <h2>Here's the rules</h2>
+        <ul>
+		   <li>Everyone gets given a random thing to do at the start of the month</li>
+           <li>You have a month to do the thing</li>
+           <li>You should document the thing in some way to share (a photo, video, some words)</li>
+           <li>IF you post about it on twitter you can use the hashtag #AMPDG</li>
+           <li>You should add ideas to the ideas pool in return</li>
+		</ul>
+</div>;
+}
+
+function Adventures() {
+	
+	var myArray = [
 "Build the most elaborate blanket fort and spend a night in it.",
 "Go to the cinema at a random time and see the first film showing",
 "Go and hunt down an ice-cream van to buy an ice-cream from",
@@ -69,64 +162,22 @@ var randomItem1 = myArray[Math.floor(Math.random()*myArray.length)];
 var randomItem2 = myArray[Math.floor(Math.random()*myArray.length)];
 var randomItem3 = myArray[Math.floor(Math.random()*myArray.length)];
 
-
-
- return (
-    <div className="AMPDG">
-      <header className="App-header">
-        <h1>Automanic Pixie Dream Girl</h1>
-		teaching broodingly soulful young men to embrace life and its infinite mysteries and adventures as a service.
-	  </header>
-	  <div class="background">
-    
-	<div class="transbox">
-  {loggedIn ? (
-  <div>
-	{user && <>Hello {user?.user_metadata.full_name}!</>}
-	<br />
-	<button onClick={logout}>
-    Log Out
-	</button>
-  </div>
-) : (
-  <div>
-  
-  <button onClick={login}>
-    Log in here.
-  </button>
-  <br/>
-  This doesn't make a difference to anything yet. But the whole identity code does seem to work. so... yay?
-  </div>
-)}
-
- .
-  
- </div> 
-  
-  <div class="transbox">
-        <h2>Here's the rules</h2>
-        <ul>
-		   <li>Everyone gets given a random thing to do at the start of the month</li>
-           <li>You have a month to do the thing</li>
-           <li>You should document the thing in some way to share (a photo, video, some words)</li>
-           <li>IF you post about it on twitter you can use the hashtag #AMPDG</li>
-           <li>You should add ideas to the ideas pool in return</li>
-		</ul>
-</div>
-  <div class="transbox">
+	
+	
+  return <div class="transbox">
 
         <h2>Choose Your Adventure!</h2>
         <h3>Chose one of these three adventures:</h3>
-
-		
-
         <ul>
           <li>{randomItem1}</li>
           <li>{randomItem2}</li>
           <li>{randomItem3}</li>
         </ul>
-</div>
-  <div class="transbox">
+</div>;
+}
+
+function Submit() {
+  return <div class="transbox">
 
 <h2>Submit an adventure for someone else</h2>
 <ul>
@@ -140,21 +191,8 @@ var randomItem3 = myArray[Math.floor(Math.random()*myArray.length)];
 
 
 
-  </div>
-</div>
-
-  <div class="footertransbox">
-  
-  <small> ©2020 David Rickmann and Emily Down </small>
-  
-  </div>
-
-<div class = "donation">
-  <a href='https://ko-fi.com/M4M0MP6Z' target='_blank' rel="noopener noreferrer"><img height='36' src='https://cdn.ko-fi.com/cdn/kofi2.png?v=2' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
- </div> 
-
-    </div>
-  );
+  </div>;
 }
+
 
 export default App;

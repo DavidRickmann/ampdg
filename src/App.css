@@ -46,7 +46,7 @@ body {
 
 
 div.transbox {
-  margin: 30px;
+  margin: 10px;
   background-color: #ffffff;
   border: 2px solid black;
   opacity: 0.8;
@@ -65,6 +65,7 @@ div.transbox h2 {
   font-weight: bold;
   color: #000000;
   justify-content: center;
+  font-family: 'Sofia';
 }
 
 div.transbox h3 {
