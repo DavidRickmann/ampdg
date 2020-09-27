@@ -44,7 +44,39 @@ body {
   color: #61dafb;
 }
 button {
-	opacity: 1;
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+width: 80%;
+border-radius: 12px;
+border: 2px solid #5CBF60;
+margin: 5px;
+
+}
+
+button:hover
+{
+
+  background-color: pink;
+  color: black;
+}
+
+
+
+log li{
+	
+	float: right;
+}
+
+
+log a:hover{
+	
+	
 	
 }
 
@@ -54,6 +86,7 @@ nav ul {
   padding: 0;
   overflow: hidden;
   background-color: #00eebb;
+  font-weight: 900;
 }
 
 nav li {
@@ -128,3 +161,11 @@ div.donation {
   text-align: center;
 }
 
+div.loginbox {
+  margin: 7%;
+  background-color: #ffffff;
+  border: 2px solid black;
+  opacity: 0.8;
+  text-align: center;
+  display: none;
+}

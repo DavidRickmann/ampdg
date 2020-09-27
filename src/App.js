@@ -62,6 +62,8 @@ useEffect(() => {
             <li><Link to="/">Home</Link></li>
             <li><Link to="/adventures">Adventures</Link></li>
             <li><Link to="/submit">Submit</Link></li>
+			<li><Link to="/FAQ">FAQ</Link></li>
+
           </ul>
         </nav>
 
@@ -70,6 +72,7 @@ useEffect(() => {
         <Switch>
           <Route path="/adventures"><Adventures /></Route>
           <Route path="/submit"><Submit /></Route>
+		  <Route path="/Faq"><Faq /></Route>
           <Route path="/"><Home /></Route>
         </Switch>
       </div>
@@ -77,7 +80,7 @@ useEffect(() => {
     
 	
 	
-	<div class="transbox">
+	<div class="loginbox">
   {loggedIn ? (
   <div>
 	{user && <>Hello {user?.user_metadata.full_name}!</>}
@@ -88,12 +91,9 @@ useEffect(() => {
   </div>
 ) : (
   <div>
-  
   <button onClick={login}>
     Log in here.
   </button>
-  <br/>
-  This doesn't make a difference to anything yet. But the whole identity code does seem to work. so... yay?
   </div>
 )}
 
@@ -115,6 +115,10 @@ useEffect(() => {
 function Home() {
   return <div class="transbox">
         <h2>What is this?</h2>
+		The world as we know it is very much set up for us to do the same thing over and over and over. It's very easy to do spend months at a time doing nothing new or interesting at all.
+		We thought it would be good to get a bunch of ideas and try and find a system to encourage ourselves and others to try them. So, here is a fairly rudimentary site that offers you up 
+		three tiny seeds for an adventure. Go and do one. And then suggest an adventure yourself.
+		
 		
         <h2>Here's the rules</h2>
         <ul>
@@ -167,7 +171,7 @@ var randomItem3 = myArray[Math.floor(Math.random()*myArray.length)];
   return <div class="transbox">
 
 		
-		Popup.alert('Hello');
+
         <h2>Choose Your Adventure!</h2>
         <h3>Chose one of these three adventures:</h3>
 		<button>{randomItem1}</button><br />
@@ -196,5 +200,26 @@ function Submit() {
   </div>;
 }
 
+
+function Faq() {
+  return <div class="transbox">
+  
+ <h3>Do I have to be a  broodingly soulful young man to participate? </h3>
+ No! You can be any person of any gender or degree of brooding soulfulness. That's just a bit from wikipedia describing the natural prey of the manic pixie dreamgirl.
+ <br />
+ <h3>Why is it called Automanic Pixie Dream Girl? That's a kinda crappy trope isn't it?</h3>
+ Yes it is! But it doesn't matter that the website os two dimensional with no real personality of it's own. It's a website, not a person.
+ That aside, it seemed like an appropriate name for something which encourages people to have very very small adventures to shake them out of their humdrum lives.
+ <br />
+ <h3>Why is this website not very good?</h3>
+ Because I don't really know how to write react yet. I'm working on it!
+ <br />
+ 
+  
+  
+  </div>;
+	
+	
+}
 
 export default App;
