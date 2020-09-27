@@ -5,7 +5,6 @@ import netlifyAuth from './netlifyAuth.js'
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 
 
-
 function App() {
  
  let [user, setUser] = useState(null)
@@ -48,6 +47,8 @@ useEffect(() => {
 	
 
 
+
+
       <header className="App-header">
         <h1>Automanic Pixie Dream Girl</h1>
 		teaching broodingly soulful young men to embrace life and its infinite mysteries and adventures as a service.
@@ -55,7 +56,7 @@ useEffect(() => {
 	  
 	  
 	  <Router>
-      <div>
+      <div className = "navlist">
         <nav>
           <ul>
             <li><Link to="/">Home</Link></li>
@@ -105,9 +106,7 @@ useEffect(() => {
   
   </div>
 
-<div class = "donation">
-  <a href='https://ko-fi.com/M4M0MP6Z' target='_blank' rel="noopener noreferrer"><img height='36' src='https://cdn.ko-fi.com/cdn/kofi2.png?v=2' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
- </div> 
+
 
     </div>
   );
@@ -115,10 +114,12 @@ useEffect(() => {
 
 function Home() {
   return <div class="transbox">
+        <h2>What is this?</h2>
+		
         <h2>Here's the rules</h2>
         <ul>
-		   <li>Everyone gets given a random thing to do at the start of the month</li>
-           <li>You have a month to do the thing</li>
+		   <li>We give you a random thing to do (well, 3 and you choose one</li>
+           <li>You have a month to do the thing </li>
            <li>You should document the thing in some way to share (a photo, video, some words)</li>
            <li>IF you post about it on twitter you can use the hashtag #AMPDG</li>
            <li>You should add ideas to the ideas pool in return</li>
@@ -165,13 +166,15 @@ var randomItem3 = myArray[Math.floor(Math.random()*myArray.length)];
 	
   return <div class="transbox">
 
+		
+		Popup.alert('Hello');
         <h2>Choose Your Adventure!</h2>
         <h3>Chose one of these three adventures:</h3>
-        <ul>
-          <li>{randomItem1}</li>
-          <li>{randomItem2}</li>
-          <li>{randomItem3}</li>
-        </ul>
+		<button>{randomItem1}</button><br />
+        <button>{randomItem2}</button><br />
+        <button>{randomItem3}</button><br />
+		<br />
+
 </div>;
 }
 
@@ -183,7 +186,7 @@ function Submit() {
 <li>Should be achievable in roughly half a day of time</li>
 <li>Should not cost more than 20 quid</li>
 <li>Should be legal</li>
-<li>Not everything will be possible, so you get to have a new thing if it is not possible for you</li>
+<li>If I get around to it you'll be able to see how many people have chosen your thing</li>
 </ul>
 
 <h1> <a href="https://forms.gle/tLa1eAkkWaukdK3p9"> Click here! </a></h1>
