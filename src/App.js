@@ -115,17 +115,17 @@ useEffect(() => {
 function Home() {
   return <div class="transbox">
         <h2>What is this?</h2>
-		The world as we know it is very much set up for us to do the same thing over and over and over. It's very easy to do spend months at a time doing nothing new or interesting at all.
+		The world as we know it is very much set up for us to do the same thing over and over and over. It's very easy to spend months at a time doing nothing new or interesting at all.
 		We thought it would be good to get a bunch of ideas and try and find a system to encourage ourselves and others to try them. So, here is a fairly rudimentary site that offers you up 
 		three tiny seeds for an adventure. Go and do one. And then suggest an adventure yourself.
 		
 		
         <h2>Here's the rules</h2>
         <ul>
-		   <li>We give you a random thing to do (well, 3 and you choose one</li>
+	    <li>We give you a random thing to do (well, 3 and you choose one)</li>
            <li>You have a month to do the thing </li>
            <li>You should document the thing in some way to share (a photo, video, some words)</li>
-           <li>IF you post about it on twitter you can use the hashtag #AMPDG</li>
+           <li>If you post about it on twitter you can use the hashtag #AMPDG</li>
            <li>You should add ideas to the ideas pool in return</li>
 		</ul>
 </div>;
