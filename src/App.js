@@ -214,15 +214,15 @@ function Submit() {
 function Faq() {
   return <div class="transbox">
   
-	     <h3>Do I have to be a  broodingly soulful young man to participate? </h3>
- No! You can be any person of any gender or degree of brooding soulfulness. That's just a bit from wikipedia describing the natural prey of the manic pixie dream girl.
-	     <br />
 	     <h3>Why is it called Automanic Pixie Dream Girl?</h3>
 	     The name is based on the film trope Manic Pixie Dream Girl (MPDG), a stock female character whose only role in the film is to (in the words of critic Nathan Rabin, who invented the term) "teach broodingly soulful young men to embrace life and its infinite mysteries and adventures". They don't usually undergo any character development of their own, but are just adorably ditsy and look beautiful in their thrift-store clothing while they bring the dissatisfied man out of his shell and into a sparkling new phase of his life.
+	     <br />
 	     <h3>That's a kinda crappy trope isn't it?</h3>
  Yes it is! But it doesn't matter that this website is two dimensional with no real personality of it's own. It's a website, not a person.
  That aside, it seemed like an appropriate name for something which encourages people to have very very small adventures to hopefully add just a little extra sunshine to their lives.
- <br />
+	 <h3>Do I have to be a  broodingly soulful young man to participate? </h3>
+    No! You can be any person of any gender or degree of brooding soulfulness. That bit just describes the natural prey of the manic pixie dream girl.
+	     <br />
  <h3>Wow, this website is completely amazing!</h3>
  Thank you! Dave wrote it, and he is currently learning angular js so it's nice to know you appreciate the effort.
  <br />
