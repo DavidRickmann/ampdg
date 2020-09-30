@@ -224,7 +224,7 @@ function Faq() {
     No! You can be any person of any gender or degree of brooding soulfulness. That bit just describes the natural prey of the manic pixie dream girl.
 	     <br />
  <h3>Wow, this website is completely amazing!</h3>
- Thank you! Dave wrote it, and he is currently learning angular js so it's nice to know you appreciate the effort.
+ Thank you! Dave wrote it, and he is currently learning react so it's nice to know you appreciate the effort.
  <br />
  
   
