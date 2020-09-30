@@ -143,7 +143,7 @@ function Adventures() {
 	    "Pick 1 to 3 random words and make a piece of art/performance/song/poem/story/anything else inspired by them",
 	    "Go for a walk at night and explore somewhere new (be safe!)",
 	    "Put a pin in a map of the world blindfolded and then try to cook a meal from that country",
-	    "Dance like noone's watching, i.e. naked",
+	    "Edge of Glorying... Dance like noone's watching, i.e. naked",
 	    "Go to the beach in whatever way is possible (real beach, imaginary beach, watching a beach film while lying on a towel in swimwear, etc...)",
 	    "Randomly pick six ingredients at the grocery store and make a meal out of them",
 	    "Remake something you do not want any longer into something good or useful",
