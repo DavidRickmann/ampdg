@@ -221,7 +221,7 @@ function Faq() {
  Yes it is! But it doesn't matter that this website is two dimensional with no real personality of it's own. It's a website, not a person.
  That aside, it seemed like an appropriate name for something which encourages people to have very very small adventures to hopefully add just a little extra sunshine to their lives.
 	 <h3>Do I have to be a  broodingly soulful young man to participate? </h3>
-    No! You can be any person of any gender or degree of brooding soulfulness. That bit just describes the natural prey of the manic pixie dream girl.
+    No! You can be any person of any gender or degree of brooding soulfulness. That bit just describes the natural prey of the Manic Pixie Dream Girl.
 	     <br />
  <h3>Wow, this website is completely amazing!</h3>
  Thank you! Dave wrote it, and he is currently learning react so it's nice to know you appreciate the effort.
