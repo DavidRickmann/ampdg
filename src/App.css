@@ -170,4 +170,5 @@ div.loginbox {
   border: 2px solid black;
   opacity: 0.8;
   text-align: center;
+  display: none;
 }
