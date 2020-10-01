@@ -130,14 +130,6 @@ function Home() {
 }
 
 
-function shuffle(array) {
-  for(var i = array.length; i > 1; i--) {
-    var r = Math.floor(Math.random() * i);
-    var temp = array[r];
-    array[r] = array[i-1];
-    array[i-1] = temp;
-  }
-}
 
 function Adventures() {
 	
