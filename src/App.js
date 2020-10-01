@@ -129,9 +129,19 @@ function Home() {
 </div>;
 }
 
+
+function shuffle(array) {
+  for(var i = array.length; i > 1; i--) {
+    var r = Math.floor(Math.random() * i);
+    var temp = array[r];
+    array[r] = array[i-1];
+    array[i-1] = temp;
+  }
+}
+
 function Adventures() {
 	
-	var myArray = [
+	var adventureArray = [
 	    "Build an elaborate blanket fort and spend a night in it",
 	    "Go to the cinema at a random time and see the first film showing",
 	    "Go and hunt down an ice-cream van to buy an ice-cream from",
@@ -173,9 +183,15 @@ function Adventures() {
 ];
 
 
-var randomItem1 = myArray[Math.floor(Math.random()*myArray.length)];
-var randomItem2 = myArray[Math.floor(Math.random()*myArray.length)];
-var randomItem3 = myArray[Math.floor(Math.random()*myArray.length)];
+for(var i = adventureArray.length; i > 1; i--) {
+    var r = Math.floor(Math.random() * i);
+    var temp = adventureArray[r];
+    adventureArray[r] = adventureArray[i-1];
+    adventureArray[i-1] = temp;}
+
+var randomItem1 = adventureArray[1];
+var randomItem2 = adventureArray[2];
+var randomItem3 = adventureArray[3];
 
 	
 	

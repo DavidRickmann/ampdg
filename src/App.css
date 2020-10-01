@@ -126,6 +126,7 @@ div.transbox p {
 
 div.transbox h2 {
   margin: 5%;
+  margin-bottom: 0%;
   font-weight: bold;
   color: #000000;
   justify-content: center;
@@ -162,10 +163,11 @@ div.donation {
 }
 
 div.loginbox {
-  margin: 7%;
+  margin: 25%;
+  margin-top: 0%;
+  margin-bottom: 2%;
   background-color: #ffffff;
   border: 2px solid black;
   opacity: 0.8;
   text-align: center;
-  display: none;
 }
