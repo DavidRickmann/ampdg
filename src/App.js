@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './App.css';
+import Modal from '../src/UI/Modal/Modal'
 import { useEffect, useState } from 'react'
 import netlifyAuth from './netlifyAuth.js'
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import AdventureList from './components/AdventureList';
+
+
 
 
 function App() {
@@ -33,8 +37,8 @@ useEffect(() => {
     setUser(user)
   })
 }, [loggedIn])
- 
- 
+
+
 
 
 
@@ -63,7 +67,7 @@ useEffect(() => {
             <li><Link to="/adventures">Adventures</Link></li>
             <li><Link to="/submit">Submit</Link></li>
 			<li><Link to="/FAQ">FAQ</Link></li>
-
+			<li><Link to="/Card">Card</Link></li>
           </ul>
         </nav>
 
@@ -73,12 +77,12 @@ useEffect(() => {
           <Route path="/adventures"><Adventures /></Route>
           <Route path="/submit"><Submit /></Route>
 		  <Route path="/Faq"><Faq /></Route>
+		  <Route path="/Card"><Card /></Route>
           <Route path="/"><Home /></Route>
         </Switch>
       </div>
     </Router>
     
-	
 	
 	<div class="loginbox">
   {loggedIn ? (
@@ -129,61 +133,68 @@ function Home() {
 </div>;
 }
 
+class Card extends Component {
+ constructor(props) {
+       super(props)
+       this.state = {
+           modalToggle: false,
+		   activeAdventure: "Stuff"
+       }
+    }
+ 
+  
+  modalHandler = () => {
+    this.setState({
+      modalToggle: !this.state.modalToggle
+    })
+  }
+ 
+
+  
+  
+  
+  render() {
+    return (
+      <div class="transbox">
+        <button onClick={this.modalHandler}>{this.state.activeAdventure}</button>
+        <br />
+        <Modal show={this.state.modalToggle} modalClosed={this.modalHandler}>
+		  <div id = "notecard">
+          <div id="pattern">
+            <div id="content">
+              <h3>{this.state.activeAdventure}</h3>
+			  <br />
+			  I still can't succesfully put the data I want into this modal. Let alone actually create the data I want.
+            </div>
+          </div>
+		  </div>
+        </Modal>
+      </div>
+    );
+  }
+}
+ 
 
 
-function Adventures() {
-	
-	var adventureArray = [
-	    "Build an elaborate blanket fort and spend a night in it",
-	    "Go to the cinema at a random time and see the first film showing",
-	    "Go and hunt down an ice-cream van to buy an ice-cream from",
-	    "Climb a hill or mountain or go up tall building and perform a song at the top of your voice",
-	    "Pick a treat (hot chocolate, ice-cream, dessert, ...), and find three new places to try it from",
-	    "Design and enjoy a really decadent bathing experience",
-	    "Get super dressed-up (either fancy clothes or a costume) and go to work or grocery shopping or take the bins out",
-	    "Make a really special care package and send it to someone",
-	    "Pick 1 to 3 random words and make a piece of art/performance/song/poem/story/anything else inspired by them",
-	    "Go for a walk at night and explore somewhere new (be safe!)",
-	    "Put a pin in a map of the world blindfolded and then try to cook a meal from that country",
-	    "Edge of Glorying... Dance like noone's watching, i.e. naked",
-	    "Go to the beach in whatever way is possible (real beach, imaginary beach, watching a beach film while lying on a towel in swimwear, etc...)",
-	    "Randomly pick six ingredients at the grocery store and make a meal out of them",
-	    "Remake something you do not want any longer into something good or useful",
-	    "Use a coin toss to make all your non-vital decisions for a morning, afternoon or evening",
-	    "Go wild swimming (and if this is something you do already, pick somewhere new)",
-	    "Pick a day and look up on wikipedia what things are celebrated that day (festivals across the world, days of remembrance, famous people's birthdays), and celebrate one of them",
-	    "Alter a t-shirt into something cool and new, and wear it",
-	    "Pick a film and arrange a special showing (e.g. sing-along, wear costume, themed snacks, or make a live-action version)",
-	    "Make a transformation video (or yourself, a friend, an object, etc)",
-	    "Make bubbles (as big or as many as possible)",
-	    "Be a manic pixie dream girl and bring some joy into someone else's life",
-	    "Make a Rube Goldberg Device",
-	    "Go to the library or a friend's bookshelf and pick a book to read without looking. After reading some, leave a note in it for the next person",
-	    "Make a piece of ephemeral art out in nature (leaf art, sand art, pebble art below the tide line on the beach, please no cairns!)",
-            "Make a fire and toast marshmallows or make s'mores",
-	    "Write a song and sing or play it for someone",
-	    "Create an optical illusion",
-	    "Decorate a ceiling",
-	    "Pick a day with some interesting weather and follow it closely, really watch how the clouds change",
-	    "Plant something (a tree, a garden, a sunflower, some indoor herbs or sprouts)",
-	    "Make a painting without using your hands",
-	    "Create a superhero identity for yourself and use it to do something",
-	    "Play Calvinball",
-	    "Have an epic exercise experience (play Chariots of Fire while you run barefoot on the beach, How Far I'll Go while you paddle your canoe with your hair streaming behind you, do Flashdance with your legwarmers on, ...)",
-	    "Go stargazing and try to see something new (the ISS, a meteor shower, Andromeda, the Milky Way, a constellation you haven't seen before...)",
-	    "Have a sunrise or sunset picnic",
-];
-
+function chooseAdventure() {
+//load up the adventures filr and then randomise it.
+	var adventureArray = AdventureList.adventures
 
 for(var i = adventureArray.length; i > 1; i--) {
     var r = Math.floor(Math.random() * i);
     var temp = adventureArray[r];
     adventureArray[r] = adventureArray[i-1];
     adventureArray[i-1] = temp;}
+	return adventureArray.slice(0 ,3);
+    } 
+	
+function Adventures() {
 
-var randomItem1 = adventureArray[1];
-var randomItem2 = adventureArray[2];
-var randomItem3 = adventureArray[3];
+var adventureArray = chooseAdventure()
+//var adventureArray = ["apple","lemon","lime"]
+var randomItem1 = adventureArray[0];
+var randomItem2 = adventureArray[1];
+var randomItem3 = adventureArray[2];
 
 	
 	
@@ -194,6 +205,7 @@ var randomItem3 = adventureArray[3];
         <h2>Choose Your Adventure!</h2>
         <h3>Chose one of these three adventures:</h3>
 		<button>{randomItem1}</button><br />
+		
         <button>{randomItem2}</button><br />
         <button>{randomItem3}</button><br />
 		<br />
