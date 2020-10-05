@@ -6,8 +6,34 @@ import netlifyAuth from './netlifyAuth.js'
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import AdventureList from './components/AdventureList';
 
+//load the doodles
+import image1 from './doodles/doodle1.png'
+import image2 from './doodles/doodle2.png'
+import image3 from './doodles/doodle3.png'
+import image4 from './doodles/doodle4.png'
+import image5 from './doodles/doodle5.png'
+import image6 from './doodles/doodle6.png'
+import image7 from './doodles/doodle7.png'
+import image8 from './doodles/doodle8.png'
+import image9 from './doodles/doodle9.png'
+import image10 from './doodles/doodle10.png'
+import image11 from './doodles/doodle11.png'
+import image12 from './doodles/doodle12.png'
 
-
+const images= [
+  image1,
+  image2,
+  image3,
+  image4,
+  image5,
+  image6,
+  image7,
+  image8,
+  image9,
+  image10,
+  image11,
+  image12  
+  ];
 
 function App() {
  
@@ -136,35 +162,107 @@ function Home() {
 class Card extends Component {
  constructor(props) {
        super(props)
-       this.state = {
-           modalToggle: false,
+       this.state = { 
+	       modalToggle1: false, 
+   	       modalToggle2: false, 
+  	       modalToggle3: false, 
 		   activeAdventure: "Stuff"
        }
     }
- 
   
-  modalHandler = () => {
-    this.setState({
-      modalToggle: !this.state.modalToggle
+  modalHandler1 = () => {
+	this.setState({
+      modalToggle1: !this.state.modalToggle1
     })
   }
- 
+  
+    modalHandler2 = () => {
+	this.setState({
+      modalToggle2: !this.state.modalToggle2
+    })
+  }
+  
+    modalHandler3 = () => {
+	this.setState({
+      modalToggle3: !this.state.modalToggle3
+    })
+  }
 
-  
-  
+  componentDidMount() {
+    this.changeImage();
+	this.chooseAdventure();
+  }
+
+changeImage = () => {
+    const randomNumber = Math.floor(Math.random() * images.length);
+    this.setState({
+      currentImageIndex: randomNumber
+    });
+  }
+ 
+ chooseAdventure = () => {
+//load up the adventures filr and then randomise it.
+	var adventureArray = AdventureList.adventures
+
+for(var i = adventureArray.length; i > 1; i--) {
+    var r = Math.floor(Math.random() * i);
+    var temp = adventureArray[r];
+    adventureArray[r] = adventureArray[i-1];
+    adventureArray[i-1] = temp;}
+    this.setState({activeAdventure: adventureArray});
+    } 
+ 
   
   render() {
     return (
       <div class="transbox">
-        <button onClick={this.modalHandler}>{this.state.activeAdventure}</button>
+	          <h2>Choose Your Adventure!</h2>
+        <h3>Chose one of these three adventures:</h3>
+        <button onClick={this.modalHandler1}>{this.state.activeAdventure[0]}</button>
         <br />
-        <Modal show={this.state.modalToggle} modalClosed={this.modalHandler}>
+        <Modal show={this.state.modalToggle1} modalClosed={this.modalHandler1}>
 		  <div id = "notecard">
           <div id="pattern">
             <div id="content">
-              <h3>{this.state.activeAdventure}</h3>
+              <h3>{this.state.activeAdventure[0]}</h3>
 			  <br />
-			  I still can't succesfully put the data I want into this modal. Let alone actually create the data I want.
+			    <div id = "doodle">
+				<img src={images[this.state.currentImageIndex]} />
+				</div>
+            </div>
+          </div>
+		  </div>
+        </Modal>
+
+
+	          <button onClick={this.modalHandler2}>{this.state.activeAdventure[1]}</button>
+        <br />
+        <Modal show={this.state.modalToggle2} modalClosed={this.modalHandler2}>
+		  <div id = "notecard">
+          <div id="pattern">
+            <div id="content">
+              <h3>{this.state.activeAdventure[1]}</h3>
+			  <br />
+			    <div id = "doodle">
+				<img src={images[this.state.currentImageIndex]} />
+				</div>
+            </div>
+          </div>
+		  </div>
+        </Modal>
+
+
+	    <button onClick={this.modalHandler3}>{this.state.activeAdventure[2]}</button>
+        <br />
+        <Modal show={this.state.modalToggle3} modalClosed={this.modalHandler3}>
+		  <div id = "notecard">
+          <div id="pattern">
+            <div id="content">
+              <h3>{this.state.activeAdventure[2]}</h3>
+			  <br />
+			    <div id = "doodle">
+				<img src={images[this.state.currentImageIndex]} />
+				</div>
             </div>
           </div>
 		  </div>

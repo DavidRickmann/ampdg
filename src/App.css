@@ -178,9 +178,6 @@ div.loginbox {
 }
 
 
-div.notecard {
-transform: rotate(40deg)
-}
 
 /* styling paper */
 #paper {
@@ -188,7 +185,7 @@ transform: rotate(40deg)
   height: 700px;
   position: relative;
   margin: 20px auto;
-  padding-top: 40px;
+  padding-top: 8px;
   padding-bottom: 40px;
   background-color: white;
   box-shadow: 0px 0px 5px 0px #888;
@@ -213,7 +210,7 @@ transform: rotate(40deg)
 
 /* styling text content */
 #content {
-  padding-top: 6px;
+  padding-top: 0px;
   padding-left: 56px;
   padding-right: 16px;
   line-height: 25px;
@@ -223,3 +220,13 @@ transform: rotate(40deg)
   word-spacing: 5px;
 }
 
+/* doodle styling */
+
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: 0;
+  margin-bottom: 0;
+  width: 20%;
+}
