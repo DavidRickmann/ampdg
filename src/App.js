@@ -235,7 +235,7 @@ setAdventure = chosen => {
               <h3>{this.state.activeAdventure[this.state.adventureNum]}</h3>
 			  <br />
 			    <div id = "doodle">
-				<img src={this.state.activeImage[this.state.adventureNum]} />
+				<img src={this.state.activeImage[this.state.adventureNum]} alt="doodle" />
 				</div>
             </div>
           </div>
