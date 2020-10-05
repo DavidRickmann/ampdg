@@ -163,43 +163,44 @@ class Card extends Component {
  constructor(props) {
        super(props)
        this.state = { 
-	       modalToggle1: false, 
-   	       modalToggle2: false, 
-  	       modalToggle3: false, 
-		   activeAdventure: "Stuff"
+	       modalToggle: false, 
+		   activeAdventure: 0,
+		   activeImage: 0,
+		   adventureNum: 1
+		   
        }
     }
   
-  modalHandler1 = () => {
+  modalHandler = () => {
 	this.setState({
-      modalToggle1: !this.state.modalToggle1
-    })
-  }
-  
-    modalHandler2 = () => {
-	this.setState({
-      modalToggle2: !this.state.modalToggle2
-    })
-  }
-  
-    modalHandler3 = () => {
-	this.setState({
-      modalToggle3: !this.state.modalToggle3
+      modalToggle: !this.state.modalToggle
     })
   }
 
   componentDidMount() {
-    this.changeImage();
+    this.chooseImage();
 	this.chooseAdventure();
   }
 
-changeImage = () => {
-    const randomNumber = Math.floor(Math.random() * images.length);
-    this.setState({
-      currentImageIndex: randomNumber
-    });
-  }
- 
+//chooseImage = () => {
+//    const randomNumber = Math.floor(Math.random() * images.length);
+//    this.setState({
+//      currentImageIndex: randomNumber
+//    });
+//  }
+
+chooseImage = () => {
+var imageArray = images
+
+for(var i = imageArray.length; i > 1; i--) {
+    var r = Math.floor(Math.random() * i);
+    var temp = imageArray[r];
+    imageArray[r] = imageArray[i-1];
+    imageArray[i-1] = temp;}
+    this.setState({activeImage: imageArray});
+    } 
+
+
  chooseAdventure = () => {
 //load up the adventures filr and then randomise it.
 	var adventureArray = AdventureList.adventures
@@ -212,56 +213,29 @@ for(var i = adventureArray.length; i > 1; i--) {
     this.setState({activeAdventure: adventureArray});
     } 
  
-  
+setAdventure = chosen => {
+	this.setState({adventureNum: chosen});
+	this.modalHandler();
+}
+
   render() {
     return (
       <div class="transbox">
 	          <h2>Choose Your Adventure!</h2>
         <h3>Chose one of these three adventures:</h3>
-        <button onClick={this.modalHandler1}>{this.state.activeAdventure[0]}</button>
+        <button onClick={e => this.setAdventure(0)}>{this.state.activeAdventure[0]}</button>
+        <button onClick={e => this.setAdventure(1)}>{this.state.activeAdventure[1]}</button>
+        <button onClick={e => this.setAdventure(2)}>{this.state.activeAdventure[2]}</button>
+
         <br />
-        <Modal show={this.state.modalToggle1} modalClosed={this.modalHandler1}>
+        <Modal show={this.state.modalToggle} modalClosed={this.modalHandler}>
 		  <div id = "notecard">
           <div id="pattern">
             <div id="content">
-              <h3>{this.state.activeAdventure[0]}</h3>
+              <h3>{this.state.activeAdventure[this.state.adventureNum]}</h3>
 			  <br />
 			    <div id = "doodle">
-				<img src={images[this.state.currentImageIndex]} />
-				</div>
-            </div>
-          </div>
-		  </div>
-        </Modal>
-
-
-	          <button onClick={this.modalHandler2}>{this.state.activeAdventure[1]}</button>
-        <br />
-        <Modal show={this.state.modalToggle2} modalClosed={this.modalHandler2}>
-		  <div id = "notecard">
-          <div id="pattern">
-            <div id="content">
-              <h3>{this.state.activeAdventure[1]}</h3>
-			  <br />
-			    <div id = "doodle">
-				<img src={images[this.state.currentImageIndex]} />
-				</div>
-            </div>
-          </div>
-		  </div>
-        </Modal>
-
-
-	    <button onClick={this.modalHandler3}>{this.state.activeAdventure[2]}</button>
-        <br />
-        <Modal show={this.state.modalToggle3} modalClosed={this.modalHandler3}>
-		  <div id = "notecard">
-          <div id="pattern">
-            <div id="content">
-              <h3>{this.state.activeAdventure[2]}</h3>
-			  <br />
-			    <div id = "doodle">
-				<img src={images[this.state.currentImageIndex]} />
+				<img src={this.state.activeImage[this.state.adventureNum]} />
 				</div>
             </div>
           </div>
