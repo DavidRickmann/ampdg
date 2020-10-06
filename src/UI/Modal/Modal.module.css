@@ -1,0 +1,44 @@
+/* Google font */
+@import url('https://fonts.googleapis.com/css?family=Reenie+Beanie');
+@import url('https://fonts.googleapis.com/css2?family=Cabin+Sketch');
+
+
+
+.Modal {
+    position: fixed;
+    z-index: 500;
+    background-color: white;
+    width: 70%;
+	height: 280px;
+    border: 1px solid #ccc;
+  box-shadow: 0px 0px 5px 0px #888;
+  padding-top: 40px;
+  padding-bottom: 40px;
+    margin: 20px auto;
+    left: 15%;
+    top: 30%;
+    box-sizing: border-box;
+    transition: all 0.3s ease-out;  
+
+}
+
+.Modal::before {
+  content: '';
+  width: 2px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 40px;
+  background-color: rgba(255,0,0,0.6);
+}
+
+
+
+
+@media (min-width: 600px) {
+    .Modal {
+        width: 500px;
+        left: calc(50% - 250px);
+    }
+}
+
