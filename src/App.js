@@ -4,7 +4,8 @@ import Modal from '../src/UI/Modal/Modal'
 import { useEffect, useState } from 'react'
 import netlifyAuth from './netlifyAuth.js'
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
-import AdventureList from './components/AdventureList';
+//import AdventureList from './components/AdventureList';
+import AdventureList2 from './components/AdventureList2';
 
 //load the doodles
 import image1 from './doodles/doodle1.png'
@@ -34,6 +35,20 @@ const images= [
   image11,
   image12  
   ];
+
+function shuffleArray(array) {
+  let i = array.length - 1;
+  for (; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    const temp = array[i];
+    array[i] = array[j];
+    array[j] = temp;
+  }
+  return array;
+}
+
+const shuffledimages = shuffleArray(images)
+const shuffledadventures = shuffleArray(AdventureList2.adventures)
 
 function App() {
  
@@ -93,7 +108,6 @@ useEffect(() => {
             <li><Link to="/adventures">Adventures</Link></li>
             <li><Link to="/submit">Submit</Link></li>
 			<li><Link to="/FAQ">FAQ</Link></li>
-			<li><Link to="/Card">Card</Link></li>
           </ul>
         </nav>
 
@@ -103,7 +117,6 @@ useEffect(() => {
           <Route path="/adventures"><Adventures /></Route>
           <Route path="/submit"><Submit /></Route>
 		  <Route path="/Faq"><Faq /></Route>
-		  <Route path="/Card"><Card /></Route>
           <Route path="/"><Home /></Route>
         </Switch>
       </div>
@@ -159,13 +172,13 @@ function Home() {
 </div>;
 }
 
-class Card extends Component {
+class Adventures extends Component {
  constructor(props) {
        super(props)
        this.state = { 
 	       modalToggle: false, 
-		   activeAdventure: 0,
-		   activeImage: 0,
+		   shuffledadventures: 0,
+		   shuffledimage: 0,
 		   adventureNum: 1
 		   
        }
@@ -177,42 +190,6 @@ class Card extends Component {
     })
   }
 
-  componentDidMount() {
-    this.chooseImage();
-	this.chooseAdventure();
-  }
-
-//chooseImage = () => {
-//    const randomNumber = Math.floor(Math.random() * images.length);
-//    this.setState({
-//      currentImageIndex: randomNumber
-//    });
-//  }
-
-chooseImage = () => {
-var imageArray = images
-
-for(var i = imageArray.length; i > 1; i--) {
-    var r = Math.floor(Math.random() * i);
-    var temp = imageArray[r];
-    imageArray[r] = imageArray[i-1];
-    imageArray[i-1] = temp;}
-    this.setState({activeImage: imageArray});
-    } 
-
-
- chooseAdventure = () => {
-//load up the adventures filr and then randomise it.
-	var adventureArray = AdventureList.adventures
-
-for(var i = adventureArray.length; i > 1; i--) {
-    var r = Math.floor(Math.random() * i);
-    var temp = adventureArray[r];
-    adventureArray[r] = adventureArray[i-1];
-    adventureArray[i-1] = temp;}
-    this.setState({activeAdventure: adventureArray});
-    } 
- 
 setAdventure = chosen => {
 	this.setState({adventureNum: chosen});
 	this.modalHandler();
@@ -220,70 +197,38 @@ setAdventure = chosen => {
 
   render() {
     return (
-      <div class="transbox">
-	          <h2>Choose Your Adventure!</h2>
+      <div>
+	  <div class="transbox">
+	    <h2>Choose Your Adventure!</h2>
         <h3>Chose one of these three adventures:</h3>
-        <button onClick={e => this.setAdventure(0)}>{this.state.activeAdventure[0]}</button>
-        <button onClick={e => this.setAdventure(1)}>{this.state.activeAdventure[1]}</button>
-        <button onClick={e => this.setAdventure(2)}>{this.state.activeAdventure[2]}</button>
+        <button onClick={e => this.setAdventure(0)}>{shuffledadventures[0].title}</button>
+        <button onClick={e => this.setAdventure(1)}>{shuffledadventures[1].title}</button>
+        <button onClick={e => this.setAdventure(2)}>{shuffledadventures[2].title}</button>
+		</div>
 
-        <br />
+        <div>
         <Modal show={this.state.modalToggle} modalClosed={this.modalHandler}>
 		  <div id = "notecard">
           <div id="pattern">
             <div id="content">
-              <h3>{this.state.activeAdventure[this.state.adventureNum]}</h3>
-			  <br />
+              <h3>{shuffledadventures[this.state.adventureNum].title}</h3>
+			      {shuffledadventures[this.state.adventureNum].desc}
 			    <div id = "doodle">
-				<img src={this.state.activeImage[this.state.adventureNum]} alt="doodle" />
+				<img src={shuffledimages[this.state.adventureNum]} alt="doodle" />
 				</div>
             </div>
           </div>
 		  </div>
         </Modal>
       </div>
+	  </div>
+
     );
   }
 }
  
 
 
-function chooseAdventure() {
-//load up the adventures filr and then randomise it.
-	var adventureArray = AdventureList.adventures
-
-for(var i = adventureArray.length; i > 1; i--) {
-    var r = Math.floor(Math.random() * i);
-    var temp = adventureArray[r];
-    adventureArray[r] = adventureArray[i-1];
-    adventureArray[i-1] = temp;}
-	return adventureArray.slice(0 ,3);
-    } 
-	
-function Adventures() {
-
-var adventureArray = chooseAdventure()
-//var adventureArray = ["apple","lemon","lime"]
-var randomItem1 = adventureArray[0];
-var randomItem2 = adventureArray[1];
-var randomItem3 = adventureArray[2];
-
-	
-	
-  return <div class="transbox">
-
-		
-
-        <h2>Choose Your Adventure!</h2>
-        <h3>Chose one of these three adventures:</h3>
-		<button>{randomItem1}</button><br />
-		
-        <button>{randomItem2}</button><br />
-        <button>{randomItem3}</button><br />
-		<br />
-
-</div>;
-}
 
 function Submit() {
   return <div class="transbox">
