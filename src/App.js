@@ -36,6 +36,7 @@ const images= [
   image12  
   ];
 
+//Shuffle them up!
 function shuffleArray(array) {
   let i = array.length - 1;
   for (; i > 0; i--) {
@@ -46,9 +47,9 @@ function shuffleArray(array) {
   }
   return array;
 }
-
 const shuffledimages = shuffleArray(images)
 const shuffledadventures = shuffleArray(AdventureList2.adventures)
+
 
 function App() {
  
@@ -140,7 +141,6 @@ useEffect(() => {
   </div>
 )}
 
- 
 </div>
 
   <div class="footertransbox">
@@ -183,7 +183,7 @@ class Adventures extends Component {
 		   
        }
     }
-  
+
   modalHandler = () => {
 	this.setState({
       modalToggle: !this.state.modalToggle
@@ -226,9 +226,6 @@ setAdventure = chosen => {
     );
   }
 }
- 
-
-
 
 function Submit() {
   return <div class="transbox">
@@ -241,12 +238,8 @@ function Submit() {
 </ul>
 
 <h1> <a href="https://forms.gle/tLa1eAkkWaukdK3p9"> Click here! </a></h1>
-
-
-
   </div>;
 }
-
 
 function Faq() {
   return <div class="transbox">
